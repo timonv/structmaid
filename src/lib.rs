@@ -3,7 +3,7 @@ struct Graph<'a> {
 }
 
 impl<'a> Graph<'a> {
-    fn build(root: &'a dyn Node) -> Graph {
+    fn new(root: &'a dyn Node) -> Graph {
         Graph { root }
     }
 
@@ -68,7 +68,7 @@ mod tests {
 
         parent.children.push(&child);
 
-        let graph = Graph::build(&parent);
+        let graph = Graph::new(&parent);
         let mermaid = graph.class_diagram().unwrap();
 
         println!("{}", &mermaid);
